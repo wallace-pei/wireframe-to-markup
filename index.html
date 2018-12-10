@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--this is not a framework, it's so that I can reference some icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.min.css">
   <title>Showtime</title>
 </head>
 <body>
   <div class="container">
       <header>
-        <div id="promo"><a href="#">New Release! Check out the new episode of Series Title</a></div>
-        <div id="navbar">
-          <div id="logo">V</div>
-          <nav>
+        <div id="promo">
+          <a href="#">New Release! Check out the new episode of Series Title</a>
+        </div>
+
+        <!-- Top Navigation Menu -->
+        <nav>
+          <a href="#home" id="logo">V</a>
+          <div id="myLinks">
             <a href="#">Home</a>
             <a href="#">Movies</a>
             <a href="#">TV Shows</a>
             <a href="#">Contact</a>
             <a href="#">Login</a>
             <a href="#">Register</a>
-          </nav>
-        </div>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars fa-1x"></i>
+          </a>
+        </nav>
       </header>
 
       <section id="hero">
@@ -97,5 +106,17 @@
         </nav>
       </footer>
   </div>
+  <script>
+
+  <!--This is to be used for the hamburger menu-->
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+  </script>
 </body>
 </html>

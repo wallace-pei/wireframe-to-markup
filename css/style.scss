@@ -1,10 +1,11 @@
 //Properties
 $colors: (
-  darkest-grey: #6A6A6A,
+  darkest-grey: #4E4E4E,
   lighter-grey: #D1D1D1,
   light-grey: #C3C3C3,
   nav-grey: #6A6A6A,
   header-grey: #6A6A6A,
+  light-header-grey: #C5C5C5,
   text-grey: #707070,
   form-grey: #828282
 );
@@ -14,8 +15,19 @@ $colors: (
 }
 
 $iPad: 768px;
-$desktop: 864px;
+$desktop: 840px;
 
+@mixin tablet {
+  @media (min-width: #{$iPad}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
 
 //base
 body, html {
@@ -23,25 +35,39 @@ body, html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  //base rem size
+  font-size: 10px;
+  color: get-color(text-grey);
   margin: 0;
   background: #FFF;
   width: 100%;
   height: 100%;
+  position: absolute;
+  z-index: -1;
 
 }
+a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: get-color(text-grey);
+}
+
 //Components
 #hero {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
   h1 {
-    font-size: 50px;
+    background-color: get-color(darkest-grey);
+    color: #fff;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 1.5rem;
   }
 }
 
 .container {
-    display: grid;
-    grid-gap: 3px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 40px 200px 40px;
+    //display: grid;
 }
 
 .header {
@@ -57,24 +83,60 @@ body {
 //layout
 header {
   div#promo{
-
+    width: 100%;
+    display: block;
+    padding: 1em;
+    background-color: get-color(light-header-grey);
+    a {
+      text-decoration: underline;
+    }
   }
-  div#navbar{
-    div#logo{
 
-    }
-    //may utilize mixin for this
-    nav{
-      display: inline-block;
-      a:first-child{
-
-      }
-      a{
-
-      }
-      a:last-child{
-
+  //may utilize mixin for this
+  nav {
+    width: 100%;
+    overflow: hidden;
+    background-color: get-color(nav-grey);
+    position: relative;
+    a {
+      i {
+        padding-top: 13px;
+        padding-bottom: 13px;
       }
     }
+  }
+
+  nav #myLinks {
+    display: none;
+    background-color: #000;
+    a {
+      padding: 1em 0;
+    }
+  }
+
+  nav a {
+    color: white;
+    padding: 0px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  nav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  nav a:hover {
+    background-color: get-color(nav-grey);
+    color: #fff;
+  }
+
+  nav a#logo {
+    color: #fff;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 2.5em;
   }
 }
