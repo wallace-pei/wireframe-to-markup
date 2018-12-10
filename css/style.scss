@@ -55,11 +55,12 @@ a {
 
 //Components
 #hero {
+  display: block;
   width: 100%;
   text-align: center;
   vertical-align: middle;
+  background-color: get-color(darkest-grey);
   h1 {
-    background-color: get-color(darkest-grey);
     color: #fff;
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 1.5rem;
@@ -110,7 +111,7 @@ header {
     display: none;
     background-color: #000;
     a {
-      padding: 1em 0;
+      padding: 1em;
     }
   }
 
@@ -138,5 +139,8 @@ header {
     color: #fff;
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 2.5em;
+  }
+  nav a#logo:hover {
+    background-color: #000;
   }
 }
